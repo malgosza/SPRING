@@ -1,23 +1,67 @@
 package com.example.demo.Modele;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity
 public class WspolrzedneGeo {
 
-    private long dlugosc;
-    private long szerokosc;
+    @Id
+    @GeneratedValue
+    private Integer id;
+    private String nameOfDevice;
+    private String city;
+    private String country;
+    private Integer longitude;
+    private Integer latitude;
 
-    public long getDlugosc() {
-        return dlugosc;
+    public Integer getId() {
+        return id;
     }
 
-    public long getSzerokosc() {
-        return szerokosc;
+    public Integer getLatitude() {
+        return latitude;
     }
 
-    public void setDlugosc(long dlugosc) {
-        this.dlugosc = dlugosc;
+    public String getNameOfDevice() {
+        return nameOfDevice;
     }
 
-    public void setSzerokosc(long szerokosc) {
-        this.szerokosc = szerokosc;
+    public Integer getLongitude() {
+        return longitude;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public void setLatitude(Integer latitude) {
+        this.latitude = latitude;
+    }
+
+    public void setLongitude(Integer longitude) {
+        this.longitude = longitude;
+    }
+
+    public void setNameOfDevice(String nameOfDevice) {
+        this.nameOfDevice = nameOfDevice;
     }
 }
+

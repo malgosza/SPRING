@@ -1,31 +1,30 @@
 package com.example.demo;
 
-import com.example.demo.Modele.HelloWorld;
+import com.example.demo.Modele.WspolrzedneGeo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Random;
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-public class HelloWorldController {
+public class WspolrzedneController {
 
     @Autowired
-    private HelloRepository helloRepository;
+    private WspolrzedneRepository wspolrzedneRepository;
 
-    @RequestMapping("/hello")
-    public List<HelloWorld> costam(){
-        return helloRepository.findAll();
+    @RequestMapping("/znajdzWszystkie")
+    public List<WspolrzedneGeo> znajdz(){
+        return wspolrzedneRepository.findAll();
     }
 
     @RequestMapping(value = "/zapisz", method = POST, consumes="application/json")
-    public String costam2(@RequestBody HelloWorld helloWorld){
+    public String zapisz(@RequestBody WspolrzedneGeo wspolrzedneGeo){
 
-        helloRepository.save(helloWorld);
+        wspolrzedneRepository.save(wspolrzedneGeo);
 
         return "zapisany!";
     }
