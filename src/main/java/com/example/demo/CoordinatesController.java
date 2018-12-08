@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import com.example.demo.Modele.WspolrzedneGeo;
+import com.example.demo.Modele.GeographicalCoordinates;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,20 +11,20 @@ import java.util.List;
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
 @RestController
-public class WspolrzedneController {
+public class CoordinatesController {
 
     @Autowired
-    private WspolrzedneRepository wspolrzedneRepository;
+    private CoordinatesRepository coordinatesRepository;
 
     @RequestMapping("/znajdzWszystkie")
-    public List<WspolrzedneGeo> znajdz(){
-        return wspolrzedneRepository.findAll();
+    public List<GeographicalCoordinates> znajdz(){
+        return coordinatesRepository.findAll();
     }
 
     @RequestMapping(value = "/zapisz", method = POST, consumes="application/json")
-    public String zapisz(@RequestBody WspolrzedneGeo wspolrzedneGeo){
+    public String zapisz(@RequestBody GeographicalCoordinates geographicalCoordinates){
 
-        wspolrzedneRepository.save(wspolrzedneGeo);
+        coordinatesRepository.save(geographicalCoordinates);
 
         return "zapisany!";
     }
