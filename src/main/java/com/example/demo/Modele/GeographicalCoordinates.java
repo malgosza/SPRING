@@ -12,7 +12,7 @@ public class GeographicalCoordinates {
     @GeneratedValue
     private Integer id;
     private Date creationDate;
-//    private String nameOfDevice;
+    private String nameOfDevice;
 //    private String city;
 //    private String country;
     private Double longitude;
@@ -34,11 +34,9 @@ public class GeographicalCoordinates {
         return latitude;
     }
 
-
-//
-//    public String getNameOfDevice() {
-//        return nameOfDevice;
-//    }
+    public String getNameOfDevice() {
+        return nameOfDevice;
+    }
 
 //    public String getCity() {
 //        return city;
@@ -64,6 +62,10 @@ public class GeographicalCoordinates {
         this.longitude = longitude;
     }
 
+    public void setNameOfDevice(String nameOfDevice) {
+        this.nameOfDevice = nameOfDevice;
+    }
+
 //    public void setCity(String city) {
 //        this.city = city;
 //    }
@@ -71,9 +73,6 @@ public class GeographicalCoordinates {
 //    public void setCountry(String country) {
 //        this.country = country;
 //    }
-//
-//    public void setNameOfDevice(String nameOfDevice) {
-//        this.nameOfDevice = nameOfDevice;
-//    }
+
 }
 
