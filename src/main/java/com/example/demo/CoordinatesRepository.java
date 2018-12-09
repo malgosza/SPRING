@@ -22,4 +22,11 @@ public class CoordinatesRepository {
     public void save(GeographicalCoordinates geographicalCoordinates){
         entityManager.persist(geographicalCoordinates);
     }
+
+    public List<GeographicalCoordinates> find(String phoneName) {
+        return entityManager.createQuery("select w from GeographicalCoordinates w " +
+                "where w.nameOfDevice =: device")
+                .setParameter("device" ,phoneName)
+                .getResultList();
+    }
 }
