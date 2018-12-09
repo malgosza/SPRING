@@ -3,6 +3,7 @@ package com.example.demo.Modele;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.util.Date;
 
 @Entity
 public class GeographicalCoordinates {
@@ -10,6 +11,7 @@ public class GeographicalCoordinates {
     @Id
     @GeneratedValue
     private Integer id;
+    private Date creationDate;
 //    private String nameOfDevice;
 //    private String city;
 //    private String country;
@@ -20,6 +22,10 @@ public class GeographicalCoordinates {
         return id;
     }
 
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
     public Double getLongitude() {
         return longitude;
     }
@@ -27,6 +33,8 @@ public class GeographicalCoordinates {
     public Double getLatitude() {
         return latitude;
     }
+
+
 //
 //    public String getNameOfDevice() {
 //        return nameOfDevice;
@@ -42,6 +50,10 @@ public class GeographicalCoordinates {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 
     public void setLatitude(Double latitude) {
