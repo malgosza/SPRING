@@ -5,14 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.transaction.Transactional;
-
-
-import java.util.Date;
 import java.util.List;
-
 
 @Repository
 @Transactional
@@ -25,15 +19,14 @@ public class CoordinatesRepository {
         .getResultList();
     }
 
-    public List<GeographicalCoordinates> findDay(Date date) {
-        return entityManager.createQuery("select w from GeographicalCoordinates w " +
-                "where w.creationDate LIKE :  Day")
-                .setParameter("Day" ,date, TemporalType.DATE)
-                .getResultList();
-    }
-
-
     public void save(GeographicalCoordinates geographicalCoordinates){
         entityManager.persist(geographicalCoordinates);
+    }
+
+    public List<GeographicalCoordinates> find(String phoneName) {
+        return entityManager.createQuery("select w from GeographicalCoordinates w " +
+                "where w.nameOfDevice =: device")
+                .setParameter("device" ,phoneName)
+                .getResultList();
     }
 }
