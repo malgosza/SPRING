@@ -16,12 +16,12 @@ public class CoordinatesController {
     @Autowired
     private CoordinatesRepository coordinatesRepository;
 
-    @RequestMapping("/znajdzWszystkie")
+    @RequestMapping("/coordinate")
     public List<GeographicalCoordinates> znajdz(){
         return coordinatesRepository.findAll();
     }
 
-    @RequestMapping(value = "/zapisz", method = POST, consumes="application/json")
+    @RequestMapping(value = "/coordinate", method = POST, consumes="application/json")
     public String zapisz(@RequestBody GeographicalCoordinates geographicalCoordinates){
 
         coordinatesRepository.save(geographicalCoordinates);
