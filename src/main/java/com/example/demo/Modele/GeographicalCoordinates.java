@@ -13,18 +13,18 @@ public class GeographicalCoordinates {
 //    private String nameOfDevice;
 //    private String city;
 //    private String country;
-    private Integer longitude;
-    private Integer latitude;
+    private Double longitude;
+    private Double latitude;
 
     public Integer getId() {
         return id;
     }
 
-    public Integer getLongitude() {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public Integer getLatitude() {
+    public Double getLatitude() {
         return latitude;
     }
 //
@@ -44,11 +44,11 @@ public class GeographicalCoordinates {
         this.id = id;
     }
 
-    public void setLatitude(Integer latitude) {
+    public void setLatitude(Double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(Integer longitude) {
+    public void setLongitude(Double longitude) {
         this.longitude = longitude;
     }
 
