@@ -2,13 +2,22 @@ package com.example.demo;
 
 import com.example.demo.Modele.GeographicalCoordinates;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
+
 
 import static org.springframework.web.bind.annotation.RequestMethod.POST;
 
@@ -23,22 +32,24 @@ public class CoordinatesController {
         return coordinatesRepository.findAll();
     }
 
-    @RequestMapping(value = "/coordinate", method = POST, consumes="application/json")
+
+   @RequestMapping(value = "/coordinate", method = POST, consumes="application/json")
+
     public String zapisz(@RequestBody GeographicalCoordinates geographicalCoordinates){
 
-        geographicalCoordinates.setCreationDate(new Date());
         coordinatesRepository.save(geographicalCoordinates);
 
         return "zapisany!";
     }
 
-    @RequestMapping("/coordinate/{phoneName}")
-    public List<GeographicalCoordinates> znajdzTelefon(@PathVariable String phoneName){
-        return coordinatesRepository.find(phoneName);
+   @RequestMapping("/coordinate/{date}")
+   public List<GeographicalCoordinates> znajdzDzien(@PathVariable @DateTimeFormat(pattern = "yyyy-MM-dd") Date date){
+        return coordinatesRepository.findDay(date);
     }
 
     @RequestMapping("/")
     public String index() {
         return "Greetings from Spring Boot!";
     }
+
 }
